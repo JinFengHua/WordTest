@@ -16,8 +16,9 @@ import com.example.wordtest.translateapi.TransApi;
 import java.util.Map;
 
 public class WordTranslate extends AppCompatActivity {
-    private static final String APP_ID = "20200918000568640";
-    private static final String SECURITY_KEY = "DTpEKPorg2PrQztdNWrg";
+//设置appid和securitykey,这两项可以去百度翻译API上申请获得
+    private static final String APP_ID = "appid";
+    private static final String SECURITY_KEY = "securityKey";
 
     private TextView to,method,start;
     private EditText from;
