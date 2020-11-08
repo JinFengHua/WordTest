@@ -10,13 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wordtest.translateapi.TransApi;
 
 import java.util.Map;
 
 public class WordTranslate extends AppCompatActivity {
-//设置appid和securitykey,这两项可以去百度翻译API上申请获得
+    //设置appid和securitykey,这两项可以去百度翻译API上申请获得
     private static final String APP_ID = "appid";
     private static final String SECURITY_KEY = "securityKey";
 
@@ -44,6 +45,11 @@ public class WordTranslate extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (APP_ID.equals("appid") || "securityKey".equals(SECURITY_KEY)){
+                    Toast.makeText(WordTranslate.this, "未申请到百度翻译API开发者的AppID", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+//                开启线程,调用api获得翻译结果
                 new Thread(new httpConnectThread(APP_ID,SECURITY_KEY)).start();
             }
 
